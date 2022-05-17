@@ -1,0 +1,24 @@
+<div class="post-list-header">
+  <div class="post-list-heading">
+    Posts
+  </div>
+  <button mat-raised-button color="primary" type="button" (click)="createPost()">Create Post</button>
+</div>
+<mat-accordion *ngIf="postsList.length>=0">
+  <mat-expansion-panel *ngFor="let post of postsList">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{post.title}}
+      </mat-panel-title>
+      <mat-action-row>
+        <button mat-button color="warn" (click)="deletePost(post)">Delete</button>
+        <button mat-button color="primary" (click)="editPost(post)">Edit</button>
+      </mat-action-row>
+    </mat-expansion-panel-header>
+    <p>{{post.desc}}</p>
+    <p>{{post.visibility}}</p>
+  </mat-expansion-panel>
+</mat-accordion>
+<div class="no-posts mat-body-1" *ngIf="postsList.length==0">
+  No posts added yet
+</div>

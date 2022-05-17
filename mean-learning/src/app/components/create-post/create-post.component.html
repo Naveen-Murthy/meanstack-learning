@@ -1,0 +1,25 @@
+<mat-card>
+  <div class="mat-headline">Create Post</div>
+  <form (submit)="onSubmit($event)" [formGroup]="createPostForm">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput name="title" formControlName="title"/>
+      <mat-error>Please enter valid title</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Post Description</mat-label>
+      <textarea matInput rows="4" name="description" formControlName="description"></textarea>
+      <mat-error>Please enter valid description</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Visibility</mat-label>
+      <mat-select name="visibility" formControlName="visibility">
+        <mat-option *ngFor="let option of visibilityOptions" [value]="option.value">
+          {{option.label}}
+        </mat-option>
+      </mat-select>
+      <mat-error>Please select valid visibility</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Save</button>
+  </form>
+</mat-card>
