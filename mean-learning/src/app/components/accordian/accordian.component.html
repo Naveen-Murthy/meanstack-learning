@@ -1,0 +1,34 @@
+<ul id="accordion" class="accordion">
+  <li *ngFor="let menu of menus; let i = index" [class.active]="menu.active">
+    <div class="menu" (click)="toggle(i)">
+      <span class="material-icons icons">
+        {{menu.iconClass}}
+      </span>
+      <div class="title__section">
+        <span class="menu__title">
+          {{ menu.title }}
+        </span>
+        <span class="action__buttons">
+          <button mat-button color="warn" (click)="delete(menu)">
+            <span class="material-icons">
+              delete_outline
+            </span>
+          </button>
+          <button mat-button color="primary" (click)="edit(menu)">
+            <span class="material-icons">
+              edit
+            </span>
+          </button>
+        </span>
+      </div>
+      <span class="material-icons expand icons">
+        expand_more
+      </span>
+    </div>
+    <ul class="submenu" #submenu [style.height.px]="menu.active ? submenu.scrollHeight : 0">
+      <div class="desc">
+        {{ menu.desc }}
+      </div>
+    </ul>
+  </li>
+</ul>

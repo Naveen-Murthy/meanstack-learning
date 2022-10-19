@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditPostComponent } from './components/edit-post/edit-post.component';
 import { PostsService } from './services/posts.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AccordianComponent } from './components/accordian/accordian.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     PostsListComponent,
     EditPostComponent,
+    AccordianComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Post } from 'src/app/models/post-model';
+import { Config } from 'src/app/models/accordian-model';
+import { getPost, Post } from 'src/app/models/post-model';
 import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
@@ -10,7 +11,9 @@ import { PostsService } from 'src/app/services/posts.service';
 })
 export class PostsListComponent implements OnInit {
 
-  postsList:Post[] = [];
+  postsList:getPost[] = [];
+  // Single open mode for Accodian
+  options: Config = { multi: false };
 
   constructor(
     private postService : PostsService,
@@ -24,7 +27,22 @@ export class PostsListComponent implements OnInit {
   getPostsData(){
     this.postService.getPosts().subscribe(
       (res:any)=>{
-        this.postsList=res || [];
+        if(res.status=="SUCCESS"){
+          var postsRes=res.posts || [];
+          this.postsList = postsRes.map((item:any,index:number)=>{
+            if(index==0){
+              item['active'] = true;
+            }else{
+              item['active'] = false;
+            }
+            if(item.priority == 'high'){
+              item['iconClass'] = 'priority_high'
+            }else{
+              item['iconClass'] = 'low_priority'
+            }
+            return item;
+          })
+        }
       }
     )
   }

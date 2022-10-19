@@ -24,12 +24,12 @@ export class CreatePostComponent implements OnInit {
     this.initializeForm();
     this.visibilityOptions = [
       {
-        label: 'Public',
-        value: 'Public'
+        label: 'High',
+        value: 'high'
       },
       {
-        label: 'Private',
-        value: 'Private'
+        label: 'Low',
+        value: 'low'
       }
     ]
   }
@@ -44,11 +44,10 @@ export class CreatePostComponent implements OnInit {
 
   onSubmit(event : any) {
     if(this.createPostForm.valid){
-      console.log(this.createPostForm.value.title)
       var post:Post = {
         title: this.createPostForm.value.title,
         desc: this.createPostForm.value.description,
-        visibility: this.createPostForm.value.visibility
+        priority: this.createPostForm.value.visibility
       };
       this.postsService.addPost(post).subscribe(
         (res:any)=>{

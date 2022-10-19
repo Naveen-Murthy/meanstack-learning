@@ -26,12 +26,12 @@ export class EditPostComponent implements OnInit {
     this.getPostId();
     this.visibilityOptions = [
       {
-        label: 'Public',
-        value: 'Public'
+        label: 'High',
+        value: 'high'
       },
       {
-        label: 'Private',
-        value: 'Private'
+        label: 'Low',
+        value: 'low'
       }
     ]
   }
@@ -58,7 +58,7 @@ export class EditPostComponent implements OnInit {
       this.editPostForm = this.formBuilder.group({
         title: [res.title, Validators.required],
         description: [res.desc, Validators.required],
-        visibility: [res.visibility, Validators.required],
+        visibility: [res.priority, Validators.required],
       });
     });
   }
@@ -68,7 +68,7 @@ export class EditPostComponent implements OnInit {
       var post: Post = {
         title: this.editPostForm.value.title,
         desc: this.editPostForm.value.description,
-        visibility: this.editPostForm.value.visibility,
+        priority: this.editPostForm.value.visibility,
       };
       this.postService
         .updatePost(this.postData._id, post)

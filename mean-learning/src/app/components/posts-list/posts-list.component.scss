@@ -3,14 +3,26 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
+
+  .mat-flat-button.mat-primary,
+  .mat-raised-button.mat-primary,
+  .mat-fab.mat-primary,
+  .mat-mini-fab.mat-primary {
+    background-color: rgba(63, 81, 181, 0.5);
+  }
 }
 
 .post-list-heading {
-  font-size: 18px;
-  margin-top: 24px;
+  color: white;
+  font-size: 34px;
+  text-align: center;
+  font-weight: 600;
 }
 
 .no-posts {
   text-align: center;
-  margin-top: 12px;
+  margin-top: 24px;
+  color: white;
+  border-top: 2px solid grey;
+  padding-top: 16px;
 }
