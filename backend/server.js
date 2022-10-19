@@ -21,7 +21,10 @@ router.route("/posts").get((req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.json(posts);
+      res.status(200).json({
+        status: "SUCCESS",
+        posts: posts,
+      });
     }
   });
 });

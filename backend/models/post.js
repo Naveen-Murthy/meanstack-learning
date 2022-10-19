@@ -9,9 +9,9 @@ let Post = Schema({
   desc: {
     type: String,
   },
-  visibility: {
+  priority: {
     type: String,
-    default: "Public",
+    default: "high",
   },
 });
 
