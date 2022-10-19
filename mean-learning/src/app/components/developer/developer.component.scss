@@ -1,0 +1,93 @@
+@import "../.././../assets/scss/main.scss";
+
+.landing-warapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include layout(1024) {
+    flex-direction: column;
+  }
+}
+
+.profile-image {
+  width: 400px;
+  position: relative;
+  z-index: 2;
+}
+
+.profile-oval {
+  width: 400px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 73% 27% 26% 74% / 63% 0% 100% 37%;
+
+  .my__name{
+    position: absolute;
+    right: 14px;
+    top: 35%;
+    font-size: 24px;
+    color: white;
+    z-index: 2;
+  }
+}
+
+.profile-oval::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #f09;
+  background-image: linear-gradient(to left, #3b8d99, #6b6b83, #aa4b6b);
+  width: 390px;
+  height: 320px;
+  border-radius: 73% 27% 20% 80% / 63% 29% 72% 50%;
+  box-shadow: inset 10px 10px 20px 8px rgba(0, 0, 0, 0.12);
+}
+
+.web-developer {
+  font-weight: 600;
+  font-size: 75px;
+  line-height: 87px;
+  color: white;
+
+  @include layout(1024) {
+    font-size: 50px;
+    line-height: 62px;
+  }
+
+  @include layout(425) {
+    text-align: center;
+  }
+}
+
+.social-network {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-25%);
+  gap: 20px;
+  border-radius: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 15px;
+
+  @include layout(768) {
+    top: unset;
+    right: unset;
+    left: 50%;
+    transform: translate( -50%, 0 );
+    bottom: 16px;
+    flex-direction: row;
+    padding: 8px 18px;
+  }
+}
+
+.social-media-icons {
+  font-size: 24px;
+
+  @include layout(768) {
+    font-size: 14px;
+  }
+}
