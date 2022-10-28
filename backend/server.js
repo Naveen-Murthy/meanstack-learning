@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import path from "path";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import Post from "./models/post";
@@ -7,9 +8,12 @@ import { config } from "./config/main-config";
 
 const app = express();
 const router = express.Router();
-app.get("/", (req, res) => res.send("Hello World!"));
+
 app.use(cors());
 app.use(bodyParser.json());
+
+// Static Folder
+app.use(express.static(path.join(__dirname, "public")));
 
 mongoose.connect(config.env.mongoDBUri);
 const connection = mongoose.connection;
