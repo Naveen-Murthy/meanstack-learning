@@ -11,9 +11,6 @@ heroku create {app-name}
 After creating application in heroku we need to push code to heroku git
 heroku git:remote -a {app-name}
 
-# Push Changes to Heroku
-After git commit
-git subtree push --prefix backend heroku master
 # To run Final application
 We need to build application(frontend) which will create a publid folder in backend folder.
 To build applicaiton we can use 
@@ -26,6 +23,10 @@ then type command
 npm run start
 And to see in browser, the url is
 http://localhost:4000 as server starts at 4000 port
+
+# Push Changes to Heroku
+After git commit
+git subtree push --prefix backend heroku master
 
 # About
 This is a To Do application which can be used to create, edit, and delete to do item.
