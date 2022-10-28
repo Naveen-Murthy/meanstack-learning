@@ -3,6 +3,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import Post from "./models/post";
+import { config } from "./config/main-config";
 
 const app = express();
 const router = express.Router();
@@ -10,7 +11,7 @@ app.get("/", (req, res) => res.send("Hello World!"));
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost:27017/posts");
+mongoose.connect(config.env.mongoDBUri);
 const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("Mondo Db connection has been established successfully.");
@@ -93,4 +94,8 @@ router.route("/posts/delete/:id").get((req, res) => {
 
 app.use("/", router);
 
-app.listen(4000, () => console.log("Express server  running on port 4000"));
+app.get('*', (req,res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'))
+})
+
+app.listen(config.env.port, () => console.log("Express server  running on port" + config.env.port));

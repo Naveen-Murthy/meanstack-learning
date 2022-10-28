@@ -1,0 +1,28 @@
+.form-row-gap {
+  row-gap: 18px;
+}
+
+.toast-position {
+  top: 74px;
+  right: 14px;
+}
+
+.m-hide {
+  display: block;
+
+  @include layout(768) {
+    display: none;
+  }
+}
+
+.m-show {
+  display: none;
+
+  @include layout(768) {
+    display: block;
+  }
+}
+
+.show{
+  display: block;
+}

@@ -1,16 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostsService {
 
-  uri:string = 'http://localhost:4000/posts';
+  uri:string = '';
 
   constructor(
-    private http: HttpClient
-  ) { }
+    private http: HttpClient,
+  ) {
+    this.uri = environment.apiKey
+  }
 
   getPosts(){
     var url = this.uri
