@@ -21,7 +21,7 @@ connection.once("open", () => {
   console.log("Mondo Db connection has been established successfully.");
 });
 
-router.route("/posts").get((req, res) => {
+router.route("/").get((req, res) => {
   Post.find((err, posts) => {
     if (err) {
       console.log(err);
@@ -34,7 +34,7 @@ router.route("/posts").get((req, res) => {
   });
 });
 
-router.route("/posts/:id").get((req, res) => {
+router.route("/:id").get((req, res) => {
   Post.findById(req.params.id, (err, posts) => {
     if (err) {
       console.log(err);
@@ -44,7 +44,7 @@ router.route("/posts/:id").get((req, res) => {
   });
 });
 
-router.route("/posts/add").post((req, res) => {
+router.route("/add").post((req, res) => {
   let post = new Post(req.body);
   post
     .save()
@@ -59,7 +59,7 @@ router.route("/posts/add").post((req, res) => {
     });
 });
 
-router.route("/posts/update/:id").post((req, res, next) => {
+router.route("/update/:id").post((req, res, next) => {
   Post.findById(req.params.id, (err, post) => {
     if (!post) {
       return next(new Error("Could not load document"));
@@ -83,7 +83,7 @@ router.route("/posts/update/:id").post((req, res, next) => {
   });
 });
 
-router.route("/posts/delete/:id").get((req, res) => {
+router.route("/delete/:id").get((req, res) => {
   Post.findByIdAndRemove(req.params.id, (err, post) => {
     if (err) {
       res.json(err);
@@ -96,7 +96,7 @@ router.route("/posts/delete/:id").get((req, res) => {
   });
 });
 
-app.use("/", router);
+app.use("/posts", router);
 
 app.get('*', (req,res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'))
