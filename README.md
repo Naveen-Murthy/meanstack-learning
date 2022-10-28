@@ -34,5 +34,6 @@ To fix that we need to go to Settings->Config Vars - Reveal Config Vars button -
 Then we need to add a key and a variable
 key: NPM_CONFIG_PRODUCTION 
 value: false
+
 # About
 This is a To Do application which can be used to create, edit, and delete to do item.
