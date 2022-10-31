@@ -36,4 +36,6 @@ app.get('*', (req,res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'))
 })
 
-app.listen(config.env.port || port, () => console.log("Express server  running on port" + config.env.port));
+app.listen(process.env.PORT || port, () =>{
+  console.log("Express server  running on port" + config.env.port)
+});
