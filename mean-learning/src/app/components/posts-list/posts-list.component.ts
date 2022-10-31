@@ -28,7 +28,7 @@ export class PostsListComponent implements OnInit {
     this.postService.getPosts().subscribe(
       (res:any)=>{
         if(res.status=="SUCCESS"){
-          var postsRes=res.posts || [];
+          var postsRes=res.data || [];
           this.postsList = postsRes.map((item:any,index:number)=>{
             if(index==0){
               item['active'] = true;

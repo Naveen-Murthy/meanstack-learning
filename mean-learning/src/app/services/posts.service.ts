@@ -16,7 +16,7 @@ export class PostsService {
   }
 
   getPosts(){
-    var url = this.uri
+    var url = this.uri+'/lists'
     return this.http.get(url);
     //Or we can also write it as
     // return this.http.get(`${this.uri}/posts`)

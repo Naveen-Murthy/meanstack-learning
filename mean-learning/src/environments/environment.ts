@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiKey: 'http://localhost:4000/posts'
+  apiKey: 'http://localhost:4000/todos'
 };
 
 /*

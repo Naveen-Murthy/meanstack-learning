@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-let Post = Schema({
+let ListSchema = Schema({
   title: {
     type: String,
   },
@@ -15,4 +15,6 @@ let Post = Schema({
   },
 });
 
-export default mongoose.model("Post", Post);
+let List = mongoose.model("List", ListSchema);
+
+export default List;
