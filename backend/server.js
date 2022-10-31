@@ -37,5 +37,5 @@ app.get('*', (req,res) => {
 })
 
 app.listen(process.env.PORT || port, () =>{
-  console.log("Express server  running on port" + config.env.port)
+  console.log("Express server  running on port" + process.env.PORT || port)
 });
