@@ -98,6 +98,7 @@ router.route("/delete/:id").get((req, res) => {
 
 app.use("/posts", router);
 
+// To work on localhost:4000
 app.get('*', (req,res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'))
 })
